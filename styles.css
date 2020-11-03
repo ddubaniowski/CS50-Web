@@ -1,0 +1,54 @@
+.topnav {
+  float: right;
+  margin: 5px; }
+
+.input {
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 300px; }
+
+.form_row {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+div.logo {
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 10px; }
+
+.adv_sub_but {
+  text-align: center;
+  float: right;
+  border: 2px;
+  color: white;
+  background-color: blue;
+  padding: 8px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer; }
+
+div.sub_but {
+  margin-top: 5px;
+  text-align: center;
+  border: 0px;
+  color: white;
+  padding: 8px 32px;
+  text-decoration: none;
+  margin: 4px 2px; }
+
+div.form {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
+
+form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; }
+
+/*# sourceMappingURL=styles.css.map */
