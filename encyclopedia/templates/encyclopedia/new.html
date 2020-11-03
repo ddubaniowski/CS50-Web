@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New Page
+{% endblock %}
+
+{% block body %}
+
+    <h1>New wiki page</h1>
+
+    <form action="{% url 'wiki:new' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="newpage">Create your custom wiki page by filling out the fields below:</label>
+        </div>
+
+        <div>
+            {{ titleform }}
+        </div>
+
+        <div>
+            <textarea id="newpage" name="newpage" rows="4" cols="50"> Add the Markdown content for your new wiki page here.</textarea>
+        </div>
+
+        <div>
+            <input class="newpage" type="submit" value="Add New Page">
+        </div>
+    </form>
+
+{% endblock %}

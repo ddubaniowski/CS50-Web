@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ search }}
+{% endblock %}
+
+{% block body %}
+
+    {{ entry|safe }}
+
+    <div class="edit">
+        <p><a href="{% url 'wiki:edit' search %}">Edit Entry</a></p>
+    </div>
+
+{% endblock %}
