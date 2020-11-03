@@ -1,0 +1,75 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Listing: {{ item.title }}</h2>
+
+    {% if login %}
+        {% if watch %}
+        <form action="{% url 'listing' item_id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" style="margin-bottom: 10px; background-color: #4CAF50; border: none;">Remove from Watchlist</button>
+        </form>
+        {% else %}
+        <form action="{% url 'listing' item_id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Add to Watchlist</button>
+        </form>
+        {% endif %}
+    {% endif %}
+
+    <div>
+    <div class="listing">
+        <img class="listing-img" src="{{ item.image }}" alt="Picture of listing no. {{ item.id }}">
+        <p>{{ item.description }}</p>
+        <h3><strong>${{ item.current_bid }}</strong></h3>
+    </div>
+    {% if login %}
+        <div>
+            <p><strong>{{ count }}</strong> bid(s) have been placed so far.</p>
+        </div>
+        <div>
+            <form action="{% url 'listing' item_id %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {% load crispy_forms_tags %}
+                {% crispy form %}
+                <button type="submit" class="btn btn-primary">Place Bid</button>
+            </div>
+            </form>
+        </div>
+    {% endif %}
+    <div>
+        <h5>Details:</h5>
+        <ul>
+            <li>Listed by: <strong>{{ item.user }}</strong></li>
+            <li>Category: {{ item.category }}</li>
+            <li>Created {{ item.timestamp }}</li>
+        </ul>
+    </div>
+    {% if check %}
+        <div>
+            <h3><a href="{{ item_id }}/closed">Close Listing</a></h3>
+        </div>
+    {% endif %}
+    </div>
+    {% if login %}
+        <div>
+            <h5>Comments</h5>
+            <ul>
+            {% for comment in comments %}
+            <li>{{ comment.comment }} - posted by {{ comment.user }} on {{ comment.timestamp }}</li>
+            {% empty %}
+            <li>No comments have been added to this listing yet.</li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    </div>
+    {% if login %}
+        <div>
+            <h6><a href="{% url 'comment' item_id %}">Add Comment</a></h6>
+        </div>
+    {% endif %}
+    </div>
+
+{% endblock %}

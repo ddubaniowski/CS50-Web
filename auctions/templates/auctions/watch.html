@@ -1,0 +1,17 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Your Watchlist</h2>
+    <h4>You have {{ count }} item(s) on your list.</h4>
+
+    {% for item in watchlist %}
+
+        <div class="index-list">
+            <h5><a href="/listings/{{ item.id }}">{{ item.title }}</a></h3>
+            <img class="index-img" src="{{ item.image }}" alt="Picture of listing no. {{ item.id }}">
+            <p><strong>Price:</strong> ${{ item.current_bid }}</p>
+            <p>Created {{ item.timestamp }}</p>
+        </div>
+
+    {% endfor %}
+{% endblock %}

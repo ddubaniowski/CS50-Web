@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Listing: {{ item.title }}</h2>
+    <h3>Auction won by {{ winner.username }}</h3>
+    {% if login %}
+    <h4>CONGRATULATIONS! YOU ARE THE WINNER!</h4>
+    {% endif %}
+
+    <div>
+    <div class="listing">
+        <img class="listing-img" src="{{ item.image }}" alt="Picture of listing no. {{ item.id }}">
+        <p>{{ item.description }}</p>
+        <h3><strong>${{ item.current_bid }}</strong></h3>
+    </div>
+    <div>
+        <h5>Details:</h5>
+        <ul>
+            <li>Listed by: <strong>{{ item.user }}</strong></li>
+            <li>Category: {{ item.category }}</li>
+            <li>Created {{ item.timestamp }}</li>
+        </ul>
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+body {
+    padding: 10px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.index-img {
+    width: auto;
+    max-height: 300px;
+}
+
+.listing-img {
+    width: auto;
+    max-height: 500px;
+}
+
+.index-list {
+    outline: 1px solid gray;
+    max-width: 500px;
+}
+
+p {
+    margin-top: 5px;
+}

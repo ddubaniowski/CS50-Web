@@ -1,0 +1,17 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Add Comment</h2>
+
+    <div>
+        <form action="{% url 'comment' item_id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {% load crispy_forms_tags %}
+            {% crispy form %}
+            <button type="submit" class="btn btn-primary">Add Comment</button>
+        </div>
+        </form>
+    </div>
+
+{% endblock %}
